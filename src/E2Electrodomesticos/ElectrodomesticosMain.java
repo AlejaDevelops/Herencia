@@ -60,11 +60,25 @@ también deben afectar al precio.
 Finalmente, en el main debemos realizar lo siguiente:
 Vamos a crear una Lavadora y un Televisor y llamar a los métodos necesarios para mostrar
 el precio final de los dos electrodomésticos.
+
+
+EJERCICIO 3:
+
+Siguiendo el ejercicio anterior, en el main vamos a crear un ArrayList de Electrodomésticos
+para guardar 4 electrodomésticos, ya sean lavadoras o televisores, con valores ya asignados.
+
+Luego, recorrer este array y ejecutar el método precioFinal() en cada electrodoméstico. Se
+deberá también mostrar el precio de cada tipo de objeto, es decir, el precio de todos los
+televisores y el de las lavadoras. Una vez hecho eso, también deberemos mostrar, la suma del
+precio de todos los Electrodomésticos. Por ejemplo, si tenemos una lavadora con un precio de
+2000 y un televisor de 5000, el resultado final será de 7000 (2000+5000) para
+electrodomésticos, 2000 para lavadora y 5000 para televisor.
  */
 package E2Electrodomesticos;
 
 import E2ElectrodomesticosService.LavadoraService;
 import E2ElectrodomesticosService.TelevisorService;
+import java.util.ArrayList;
 
 /**
  *
@@ -76,7 +90,39 @@ public class ElectrodomesticosMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        LavadoraService ls = new LavadoraService();        
+        System.out.println("Creando Elstrodomesticos automáticamente..."
+                + "\n ");
+        ArrayList<Electrodomestico> electro = new ArrayList();
+        Electrodomestico televisor1 = new Televisor(55, true, 1000, 'B', 50, "negro");
+        Electrodomestico televisor2 = new Televisor(65, true, 1000, 'A', 50, "blanco");
+        Electrodomestico lavadora1 = new Lavadora(15, 1000, 'A', 80, "gris");
+        Electrodomestico lavadora2 = new Lavadora(35, 1000, 'b', 100, "blanco");
+
+        electro.add(televisor1);
+        electro.add(televisor2);
+        electro.add(lavadora1);
+        electro.add(lavadora2);
+
+        double precioLavadoras = 0;
+        double precioTelevisores = 0;
+        for (Electrodomestico aux : electro) {
+
+            if (aux instanceof Lavadora) {
+                LavadoraService ls = new LavadoraService();
+                ls.precioFinal(aux);
+                precioLavadoras += aux.getPrecio();
+            } else if (aux instanceof Televisor) {
+                TelevisorService ts = new TelevisorService();
+                ts.precioFinal(aux);
+                precioTelevisores += aux.getPrecio();
+            }
+        }
+        System.out.println("El precio de todos los electrodimésticos es: " + (precioLavadoras + precioTelevisores));
+        System.out.println("Precio de todas las lavadoras: " + precioLavadoras);
+        System.out.println("Precio de todos los televisiores: " + precioTelevisores);
+
+        //MAIN DESARROLLO E2:
+        /*LavadoraService ls = new LavadoraService();        
         Electrodomestico lavadora = ls.crearLavadora();
         ls.precioFinal(lavadora);        
         System.out.println("-------------------------------------");
@@ -85,11 +131,7 @@ public class ElectrodomesticosMain {
         ts.precioFinal(televisor);
         System.out.println("-------------------------------------");
         ls.imprimirElectro(lavadora);
-        ts.imprimirElectro(televisor);
-                       
-        
-        
-        
+        ts.imprimirElectro(televisor);*/
     }
-    
+
 }
