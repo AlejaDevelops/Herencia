@@ -63,8 +63,8 @@ el precio final de los dos electrodomésticos.
  */
 package E2Electrodomesticos;
 
-import E2ElectrodomesticosService.ElectrodomesticoService;
-import java.util.Scanner;
+import E2ElectrodomesticosService.LavadoraService;
+import E2ElectrodomesticosService.TelevisorService;
 
 /**
  *
@@ -76,12 +76,16 @@ public class ElectrodomesticosMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner leer = new Scanner(System.in).useDelimiter("\n");
-        ElectrodomesticoService es = new ElectrodomesticoService();
-        Electrodomestico electro = es.crearElectrodomestico();
-        System.out.println("Electrodomestico creado: "+electro);
-        
-        System.out.println("Electrodomestico Preciofinal: "+es.precioFinal(electro));
+        LavadoraService ls = new LavadoraService();        
+        Electrodomestico lavadora = ls.crearLavadora();
+        ls.precioFinal(lavadora);        
+        System.out.println("-------------------------------------");
+        TelevisorService ts = new TelevisorService();
+        Electrodomestico televisor = ts.crearTelevisor();
+        ts.precioFinal(televisor);
+        System.out.println("-------------------------------------");
+        ls.imprimirElectro(lavadora);
+        ts.imprimirElectro(televisor);
                        
         
         

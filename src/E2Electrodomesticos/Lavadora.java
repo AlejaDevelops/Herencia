@@ -6,10 +6,7 @@ Los constructores que se deben implementar son los siguientes:
 • Un constructor con todos los atributos pasados por parámetro.
 Los métodos a implementar son:
 • Métodos getters y setters de todos los atributos.
-
-
-
-• Método comprobarConsumoEnergetico(char letra): comprueba que la letra es correcta,
+    • Método comprobarConsumoEnergetico(char letra): comprueba que la letra es correcta,
 sino es correcta usara la letra F por defecto. Este método se debe invocar al crear el
 objeto y no será visible.
 • Método comprobarColor(String color): comprueba que el color es correcto, y si no lo es,
@@ -30,6 +27,8 @@ Los constructores que se implementarán serán:
 • Un constructor vacío.
 • Un constructor con la carga y el resto de los atributos heredados. Recuerda que debes
 llamar al constructor de la clase padre.
+
+
 Los métodos que se implementara serán:
 • Método get y set del atributo carga.
 • Método crearLavadora (): este método llama a crearElectrodomestico() de la clase
@@ -40,6 +39,9 @@ funcionalidad. Si tiene una carga mayor de 30 kg, aumentará el precio en $500, 
 carga es menor o igual, no se incrementará el precio. Este método debe llamar al
 método padre y añadir el código necesario. Recuerda que las condiciones que hemos
 visto en la clase Electrodoméstico también deben afectar al precio.
+
+
+
 Se debe crear también una subclase llamada Televisor con los siguientes atributos:
 resolución (en pulgadas) y sintonizador TDT (booleano), además de los atributos
 heredados.
@@ -67,59 +69,30 @@ package E2Electrodomesticos;
  *
  * @author AlejaDevelops
  */
-public class Electrodomestico {
-    
-    protected double precio;
-    protected char consumoEnergetico;
-    protected double peso;
-    protected String color;
+public class Lavadora extends Electrodomestico{
+    private int carga;
 
-    public Electrodomestico() {
+    public Lavadora() {
     }
 
-    public Electrodomestico(double precio, char consumoEnergetico, double peso, String color) {
-        this.precio = precio;
-        this.consumoEnergetico = consumoEnergetico;
-        this.peso = peso;
-        this.color = color;
+    public Lavadora(int carga, double precio, char consumoEnergetico, double peso, String color) {
+        super(precio, consumoEnergetico, peso, color);
+        this.carga = carga;
     }
 
-    public double getPrecio() {
-        return precio;
+    public int getCarga() {
+        return carga;
     }
 
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public char getConsumoEnergetico() {
-        return consumoEnergetico;
-    }
-
-    public void setConsumoEnergetico(char consumoEnergetico) {
-        this.consumoEnergetico = consumoEnergetico;
-    }
-
-    public double getPeso() {
-        return peso;
-    }
-
-    public void setPeso(double peso) {
-        this.peso = peso;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
+    public void setCarga(int carga) {
+        this.carga = carga;
     }
 
     @Override
     public String toString() {
-        return "Precio: " + precio + ", Consumo energetico: " + consumoEnergetico + ", Peso: " + peso + ", Color: " + color + '}';
+        return "Lavadora{" + "carga: " + carga +", "+ super.toString();
     }
+    
     
     
 }

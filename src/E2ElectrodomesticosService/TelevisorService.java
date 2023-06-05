@@ -6,9 +6,6 @@ Los constructores que se deben implementar son los siguientes:
 • Un constructor con todos los atributos pasados por parámetro.
 Los métodos a implementar son:
 • Métodos getters y setters de todos los atributos.
-
-
-
 • Método comprobarConsumoEnergetico(char letra): comprueba que la letra es correcta,
 sino es correcta usara la letra F por defecto. Este método se debe invocar al crear el
 objeto y no será visible.
@@ -21,9 +18,7 @@ electrodoméstico, también llama los métodos para comprobar el color y el cons
 precio se le da un valor base de $1000.
 • Método precioFinal(): según el consumo energético y su tamaño, aumentará el valor del
 precio. Esta es la lista de precios:
-
 ************************
-
 A continuación, se debe crear una subclase llamada Lavadora, con el atributo carga,
 además de los atributos heredados.
 Los constructores que se implementarán serán:
@@ -40,6 +35,9 @@ funcionalidad. Si tiene una carga mayor de 30 kg, aumentará el precio en $500, 
 carga es menor o igual, no se incrementará el precio. Este método debe llamar al
 método padre y añadir el código necesario. Recuerda que las condiciones que hemos
 visto en la clase Electrodoméstico también deben afectar al precio.
+
+
+
 Se debe crear también una subclase llamada Televisor con los siguientes atributos:
 resolución (en pulgadas) y sintonizador TDT (booleano), además de los atributos
 heredados.
@@ -57,69 +55,58 @@ funcionalidad. Si el televisor tiene una resolución mayor de 40 pulgadas, se
 incrementará el precio un 30% y si tiene un sintonizador TDT incorporado, aumentará
 $500. Recuerda que las condiciones que hemos visto en la clase Electrodomestico
 también deben afectar al precio.
+
+
+
 Finalmente, en el main debemos realizar lo siguiente:
 Vamos a crear una Lavadora y un Televisor y llamar a los métodos necesarios para mostrar
 el precio final de los dos electrodomésticos.
  */
-package E2Electrodomesticos;
+package E2ElectrodomesticosService;
+
+import E2Electrodomesticos.Electrodomestico;
+import E2Electrodomesticos.Televisor;
 
 /**
  *
  * @author AlejaDevelops
  */
-public class Electrodomestico {
+public class TelevisorService extends ElectrodomesticoService{
     
-    protected double precio;
-    protected char consumoEnergetico;
-    protected double peso;
-    protected String color;
-
-    public Electrodomestico() {
-    }
-
-    public Electrodomestico(double precio, char consumoEnergetico, double peso, String color) {
-        this.precio = precio;
-        this.consumoEnergetico = consumoEnergetico;
-        this.peso = peso;
-        this.color = color;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public char getConsumoEnergetico() {
-        return consumoEnergetico;
-    }
-
-    public void setConsumoEnergetico(char consumoEnergetico) {
-        this.consumoEnergetico = consumoEnergetico;
-    }
-
-    public double getPeso() {
-        return peso;
-    }
-
-    public void setPeso(double peso) {
-        this.peso = peso;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    @Override
-    public String toString() {
-        return "Precio: " + precio + ", Consumo energetico: " + consumoEnergetico + ", Peso: " + peso + ", Color: " + color + '}';
+    public Televisor crearTelevisor(){
+        System.out.println("*** Creación del electrodoméstico *** "
+                + "\n Tipo: Televisor");
+        Electrodomestico electro = super.crearElectrodomestico();
+        Televisor televisor = new Televisor();
+        System.out.println("Ingresa la resolución del televisor en pulgadas");
+        int resol = leer.nextInt();
+        televisor.setResolucion(resol);
+        System.out.println("¿Deseas el televisor con sintonizador TDT? S/N");        
+        char input = leer.next().charAt(0);
+        boolean sinton = false;
+        if ("S".equalsIgnoreCase(String.valueOf(input))) {
+            sinton = true;
+        }       
+        televisor.setSintonizadorTdt(sinton);        
+        televisor.setColor(electro.getColor());
+        televisor.setConsumoEnergetico(electro.getConsumoEnergetico());
+        televisor.setPeso(electro.getPeso());
+        televisor.setPrecio(electro.getPrecio());
+        
+        return televisor;
     }
     
+    public Televisor precioFinal(Televisor televisor) {
+        Electrodomestico electro = super.precioFinal(televisor);
+        if (televisor.getResolucion()>40) {
+            televisor.setPrecio(televisor.getPrecio()*1.30);
+        } 
+        if (televisor.isSintonizadorTdt())          
+               televisor.setPrecio(televisor.getPrecio()+500);
+                {
+            
+        }
+        return televisor;
+    }
     
 }

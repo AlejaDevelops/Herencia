@@ -6,9 +6,6 @@ Los constructores que se deben implementar son los siguientes:
 • Un constructor con todos los atributos pasados por parámetro.
 Los métodos a implementar son:
 • Métodos getters y setters de todos los atributos.
-
-
-
 • Método comprobarConsumoEnergetico(char letra): comprueba que la letra es correcta,
 sino es correcta usara la letra F por defecto. Este método se debe invocar al crear el
 objeto y no será visible.
@@ -139,8 +136,7 @@ public class ElectrodomesticoService {
     }
     
     public Electrodomestico crearElectrodomestico(){
-        Electrodomestico electro = new Electrodomestico();
-        
+        Electrodomestico electro = new Electrodomestico();        
         electro.setPrecio(1000); //Precio base
         System.out.println("Ingresa la letra del consumo: ");
         char letra = leer.next().charAt(0);        
@@ -163,6 +159,10 @@ public class ElectrodomesticoService {
         electro.setPrecio(electro.getPrecio()+pp);
         
         return electro;
+    }
+    
+    public void imprimirElectro(Electrodomestico electro){
+        System.out.println(electro);
     }
     
 }

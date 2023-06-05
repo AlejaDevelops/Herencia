@@ -6,9 +6,6 @@ Los constructores que se deben implementar son los siguientes:
 • Un constructor con todos los atributos pasados por parámetro.
 Los métodos a implementar son:
 • Métodos getters y setters de todos los atributos.
-
-
-
 • Método comprobarConsumoEnergetico(char letra): comprueba que la letra es correcta,
 sino es correcta usara la letra F por defecto. Este método se debe invocar al crear el
 objeto y no será visible.
@@ -21,9 +18,7 @@ electrodoméstico, también llama los métodos para comprobar el color y el cons
 precio se le da un valor base de $1000.
 • Método precioFinal(): según el consumo energético y su tamaño, aumentará el valor del
 precio. Esta es la lista de precios:
-
 ************************
-
 A continuación, se debe crear una subclase llamada Lavadora, con el atributo carga,
 además de los atributos heredados.
 Los constructores que se implementarán serán:
@@ -40,6 +35,9 @@ funcionalidad. Si tiene una carga mayor de 30 kg, aumentará el precio en $500, 
 carga es menor o igual, no se incrementará el precio. Este método debe llamar al
 método padre y añadir el código necesario. Recuerda que las condiciones que hemos
 visto en la clase Electrodoméstico también deben afectar al precio.
+
+
+
 Se debe crear también una subclase llamada Televisor con los siguientes atributos:
 resolución (en pulgadas) y sintonizador TDT (booleano), además de los atributos
 heredados.
@@ -47,6 +45,8 @@ Los constructores que se implementarán serán:
 • Un constructor vacío.
 • Un constructor con la resolución, sintonizador TDT y el resto de los atributos
 heredados. Recuerda que debes llamar al constructor de la clase padre.
+
+
 Los métodos que se implementara serán:
 • Método get y set de los atributos resolución y sintonizador TDT.
 • Método crearTelevisor(): este método llama a crearElectrodomestico() de la clase
@@ -67,59 +67,41 @@ package E2Electrodomesticos;
  *
  * @author AlejaDevelops
  */
-public class Electrodomestico {
-    
-    protected double precio;
-    protected char consumoEnergetico;
-    protected double peso;
-    protected String color;
+public class Televisor extends Electrodomestico{
+    private double resolucion;
+    private boolean sintonizadorTdt;
 
-    public Electrodomestico() {
+    public Televisor() {
     }
 
-    public Electrodomestico(double precio, char consumoEnergetico, double peso, String color) {
-        this.precio = precio;
-        this.consumoEnergetico = consumoEnergetico;
-        this.peso = peso;
-        this.color = color;
+    public Televisor(double resolucion, boolean sintonizadorTdt, double precio, char consumoEnergetico, double peso, String color) {
+        super(precio, consumoEnergetico, peso, color);
+        this.resolucion = resolucion;
+        this.sintonizadorTdt = sintonizadorTdt;
     }
 
-    public double getPrecio() {
-        return precio;
+    public double getResolucion() {
+        return resolucion;
     }
 
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    public void setResolucion(double resolucion) {
+        this.resolucion = resolucion;
     }
 
-    public char getConsumoEnergetico() {
-        return consumoEnergetico;
+    public boolean isSintonizadorTdt() {
+        return sintonizadorTdt;
     }
 
-    public void setConsumoEnergetico(char consumoEnergetico) {
-        this.consumoEnergetico = consumoEnergetico;
-    }
-
-    public double getPeso() {
-        return peso;
-    }
-
-    public void setPeso(double peso) {
-        this.peso = peso;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
+    public void setSintonizadorTdt(boolean sintonizadorTdt) {
+        this.sintonizadorTdt = sintonizadorTdt;
     }
 
     @Override
     public String toString() {
-        return "Precio: " + precio + ", Consumo energetico: " + consumoEnergetico + ", Peso: " + peso + ", Color: " + color + '}';
+        return "Televisor{" + "Resolucion: " + resolucion + ", Sintonizador TDT: " + sintonizadorTdt +", "+ super.toString() +'}';
     }
+    
+    
     
     
 }
