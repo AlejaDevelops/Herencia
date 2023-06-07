@@ -29,15 +29,18 @@ import E5AlquilerBarco.Velero;
  * @author AlejaDevelops
  */
 public class VeleroService extends AlquilerService {
+
     Velero velero = new Velero();
-    public Velero crearVelero(Alquiler alquiler){
+
+    public Velero crearVelero(Alquiler alquiler) {
         velero.setMatricula(alquiler.getBarco().getMatricula());
         velero.setEslora(alquiler.getBarco().getEslora());
         velero.setAnioFabricacion(alquiler.getBarco().getAnioFabricacion());
         System.out.println("Ingresa la cantidad de mastiles que tiene el velero: ");
         velero.setCantidadMastiles(leer.nextInt());
         return velero;
-    }    
+    }
+
     public double moduloVelero(Alquiler alquiler) {
         double moduloVelero = super.calcularModulo(alquiler.getBarco().getEslora());
         moduloVelero += velero.getCantidadMastiles();

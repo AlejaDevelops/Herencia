@@ -68,7 +68,7 @@ public class Barco {
 
     @Override
     public String toString() {
-        return "{" + "Matricula: " + matricula + ", Eslora: " + eslora + ", Año de fabricacion: " + anioFabricacion + '}';
+        return "Matricula: " + matricula + ", Eslora: " + eslora + ", Año de fabricacion: " + anioFabricacion + '}';
     }
     
         

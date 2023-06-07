@@ -33,9 +33,7 @@ public class YatesLujo extends Barco{
     private int cantidadCamarotes;
 
     public YatesLujo() {
-    }
-
-    
+    }    
 
     public YatesLujo(double potenciaCv, int cantidadCamarotes, int matricula, double eslora, Year anioFabricacion) {
         super(matricula, eslora, anioFabricacion);

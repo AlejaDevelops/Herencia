@@ -50,8 +50,8 @@ public class AlquilerBarcoMain {
             case 1:
                 VeleroService vs = new VeleroService();
                 Velero velero = vs.crearVelero(alquiler);
-                System.out.println("El velero disponible es: "+alquiler.getBarco()+" "+velero);
-                System.out.println("Valor alquiler: $"+String.format("%,d", (int)vs.calcularValorAlquiler(alquiler)));   
+                System.out.println("El velero disponible es: "+velero);
+                System.out.println("Valor alquiler: $"+vs.calcularValorAlquiler(alquiler));   
                 break;
             case 2:
                 BarcoaMotorService ms = new BarcoaMotorService();

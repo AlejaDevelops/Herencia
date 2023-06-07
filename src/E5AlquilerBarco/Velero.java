@@ -49,7 +49,7 @@ public class Velero extends Barco{
 
     @Override
     public String toString() {
-        return "Velero{" + "cantidadMastiles=" + cantidadMastiles + '}';
+        return "{"+ "Cantidad de mastiles: " + cantidadMastiles +", " + super.toString();
     }
     
     
