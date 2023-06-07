@@ -22,19 +22,30 @@ precio final de su alquiler.
 package E5AlquilerBarcoService;
 
 import E5AlquilerBarco.Alquiler;
+import E5AlquilerBarco.Barco;
 import E5AlquilerBarco.BarcoaMotor;
 
 /**
  *
  * @author AlejaDevelops
  */
-public class BarcoaMotorService extends AlquilerService{
-    public double moduloMotorizado(Alquiler alquiler) {
-        BarcoaMotor motorizado = new BarcoaMotor();
-        System.out.println("Ingresa la potencia del Yate: ");
-        motorizado.setPotenciaCv(leer.nextInt());
+public class BarcoaMotorService extends AlquilerService {
 
-        double moduloMotorizado = super.calcularModulo(alquiler.getBarco().getEslora());
+    private BarcoaMotor motorizado;
+
+    public BarcoaMotor crearMotorizado() {
+        BarcoaMotor motorizado = new BarcoaMotor();
+        Barco barco = super.crearBarco();
+        motorizado.setAnioFabricacion(barco.getAnioFabricacion());
+        motorizado.setEslora(barco.getEslora());
+        motorizado.setMatricula(barco.getMatricula());
+        motorizado.setPotenciaCv(r.nextInt(8) + 2);
+        this.motorizado = motorizado;
+        return motorizado;
+    }
+
+    public double moduloMotorizado(BarcoaMotor motorizado) {
+        double moduloMotorizado = super.calcularModulo(motorizado.getEslora());
         moduloMotorizado += motorizado.getPotenciaCv();
         return moduloMotorizado;
     }
@@ -42,7 +53,7 @@ public class BarcoaMotorService extends AlquilerService{
     @Override
     public double calcularValorAlquiler(Alquiler alquiler) {
         int diasDeOcupacion = super.calcularDiasDeOcupacion(alquiler.getFechaAlquiler(), alquiler.getFechaDevolucion());
-        double modulo = moduloMotorizado(alquiler);
+        double modulo = moduloMotorizado(motorizado);
         return diasDeOcupacion * modulo;
     }
 }

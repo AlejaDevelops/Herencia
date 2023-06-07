@@ -97,7 +97,7 @@ public class Alquiler {
 
     @Override
     public String toString() {
-        return "Alquiler{\n" + "Nombre cliente: " + nombreCliente + ", Documento: " + String.format("%,d", docCliente) + "\n Fecha de alquiler: " + fechaAlquiler + ", Fecha de Devolución: " + fechaDevolucion + ", Amarre: " + amarre + ", \n Barco " + barco ;
+        return "\n" + "Nombre cliente: " + nombreCliente + ", Documento: " + String.format("%,d", docCliente) + "\n Fecha de alquiler: " + fechaAlquiler + ", Fecha de Devolución: " + fechaDevolucion + ", Amarre: " + amarre + ", \n Barco " + barco ;
     }
     
     

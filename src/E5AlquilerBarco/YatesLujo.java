@@ -56,6 +56,11 @@ public class YatesLujo extends Barco{
     public void setCantidadCamarotes(int cantidadCamarotes) {
         this.cantidadCamarotes = cantidadCamarotes;
     }
+
+    @Override
+    public String toString() {
+        return "{Potencia (CV): " + potenciaCv + ", Cantidad de camarotes: " + cantidadCamarotes + ", " +super.toString();
+    }
     
     
 }

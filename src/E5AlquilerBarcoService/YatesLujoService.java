@@ -22,30 +22,39 @@ precio final de su alquiler.
 package E5AlquilerBarcoService;
 
 import E5AlquilerBarco.Alquiler;
+import E5AlquilerBarco.Barco;
 import E5AlquilerBarco.YatesLujo;
 
 /**
  *
  * @author AlejaDevelops
  */
-public class YatesLujoService extends AlquilerService{
-    
-    public double moduloYate(Alquiler alquiler) {
-        YatesLujo yate = new YatesLujo();
-        System.out.println("Ingresa la potencia del Yate: ");
-        yate.setPotenciaCv(leer.nextInt());
-        System.out.println("Ingresa la cantidad de camarotes que tiene el Yate: ");
-        yate.setCantidadCamarotes(leer.nextInt());
+public class YatesLujoService extends AlquilerService {
 
-        double moduloYate = super.calcularModulo(alquiler.getBarco().getEslora());
-        moduloYate += yate.getCantidadCamarotes()+yate.getPotenciaCv();
+    private YatesLujo yate;
+
+    public YatesLujo crearYate() {
+        YatesLujo yate = new YatesLujo();
+        Barco barco = super.crearBarco();
+        yate.setPotenciaCv(r.nextInt(15) + 2);
+        yate.setMatricula(barco.getMatricula());
+        yate.setEslora(barco.getEslora());
+        yate.setCantidadCamarotes(r.nextInt(10) + 1);
+        yate.setAnioFabricacion(barco.getAnioFabricacion());
+        this.yate = yate;
+        return yate;
+    }
+
+    public double moduloYate(YatesLujo yate) {
+        double moduloYate = super.calcularModulo(yate.getEslora());
+        moduloYate += yate.getCantidadCamarotes() + yate.getPotenciaCv();
         return moduloYate;
     }
 
     @Override
     public double calcularValorAlquiler(Alquiler alquiler) {
         int diasDeOcupacion = super.calcularDiasDeOcupacion(alquiler.getFechaAlquiler(), alquiler.getFechaDevolucion());
-        double modulo = moduloYate(alquiler);
+        double modulo = moduloYate(yate);
         return diasDeOcupacion * modulo;
     }
 }

@@ -21,10 +21,6 @@ precio final de su alquiler.
 package E5AlquilerBarco;
 
 import E5AlquilerBarcoService.AlquilerService;
-import E5AlquilerBarcoService.BarcoaMotorService;
-import E5AlquilerBarcoService.VeleroService;
-import E5AlquilerBarcoService.YatesLujoService;
-import java.util.Scanner;
 
 /**
  *
@@ -36,38 +32,9 @@ public class AlquilerBarcoMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner leer = new Scanner(System.in).useDelimiter("\n");
-        AlquilerService as = new AlquilerService(); 
-        Alquiler alquiler = as.crearCliente(); //Creación de un cliente genérico
-        
-        System.out.println("Selecciona el tipo de barco que deseas alquilar: "
-                + "\n 1- Velero "
-                + "\n 2- Barco a motor "
-                + "\n 3- Yate");
-        int input = leer.nextInt();        
-        
-        switch(input){
-            case 1:
-                VeleroService vs = new VeleroService();
-                Velero velero = vs.crearVelero(alquiler);
-                System.out.println("El velero disponible es: "+velero);
-                System.out.println("Valor alquiler: $"+vs.calcularValorAlquiler(alquiler));   
-                break;
-            case 2:
-                BarcoaMotorService ms = new BarcoaMotorService();
-                BarcoaMotor motorizado = new BarcoaMotor();  
-                ms.moduloMotorizado(alquiler);
-                ms.calcularValorAlquiler(alquiler);
-                break;
-            case 3:
-                YatesLujoService ys = new YatesLujoService();
-                ys.moduloYate(alquiler);
-                ys.calcularValorAlquiler(alquiler);
-                break;
-            default:
-                System.out.println("Opción no válida");
-                
-        }           
+        AlquilerService as = new AlquilerService();
+        as.alquilarUnBarco();
+                   
                 
               
     }

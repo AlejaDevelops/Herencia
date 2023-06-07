@@ -22,6 +22,7 @@ precio final de su alquiler.
 package E5AlquilerBarcoService;
 
 import E5AlquilerBarco.Alquiler;
+import E5AlquilerBarco.Barco;
 import E5AlquilerBarco.Velero;
 
 /**
@@ -30,19 +31,21 @@ import E5AlquilerBarco.Velero;
  */
 public class VeleroService extends AlquilerService {
 
-    Velero velero = new Velero();
+    private Velero velero;
 
-    public Velero crearVelero(Alquiler alquiler) {
-        velero.setMatricula(alquiler.getBarco().getMatricula());
-        velero.setEslora(alquiler.getBarco().getEslora());
-        velero.setAnioFabricacion(alquiler.getBarco().getAnioFabricacion());
-        System.out.println("Ingresa la cantidad de mastiles que tiene el velero: ");
-        velero.setCantidadMastiles(leer.nextInt());
+    public Velero crearVelero() {
+        Velero velero = new Velero();
+        Barco barco = super.crearBarco();         
+        velero.setMatricula(barco.getMatricula());
+        velero.setEslora(barco.getEslora());
+        velero.setAnioFabricacion(barco.getAnioFabricacion());
+        velero.setCantidadMastiles(r.nextInt(6) + 1);
+        this.velero = velero;
         return velero;
     }
-
-    public double moduloVelero(Alquiler alquiler) {
-        double moduloVelero = super.calcularModulo(alquiler.getBarco().getEslora());
+    
+    public double moduloVelero(Velero velero) {
+        double moduloVelero = super.calcularModulo(velero.getEslora());
         moduloVelero += velero.getCantidadMastiles();
         return moduloVelero;
     }
@@ -50,7 +53,7 @@ public class VeleroService extends AlquilerService {
     @Override
     public double calcularValorAlquiler(Alquiler alquiler) {
         int diasDeOcupacion = calcularDiasDeOcupacion(alquiler.getFechaAlquiler(), alquiler.getFechaDevolucion());
-        double modulo = moduloVelero(alquiler);
+        double modulo = moduloVelero(velero);
         return diasDeOcupacion * modulo;
     }
 

@@ -46,6 +46,11 @@ public class BarcoaMotor extends Barco{
     public void setPotenciaCv(double potenciaCv) {
         this.potenciaCv = potenciaCv;
     }
+
+    @Override
+    public String toString() {
+        return "{Potencia (CV): " + potenciaCv +", "+ super.toString();
+    }
     
     
 }
