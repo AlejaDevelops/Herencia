@@ -11,10 +11,18 @@ resultado final.
  */
 package E4FormasGeometricas;
 
+import java.util.Scanner;
+
 /**
  *
  * @author AlejaDevelops
  */
 public interface CalculosFormas {
+    Scanner leer = new Scanner(System.in).useDelimiter("\n");    
+    
+    public double calcularArea();
+    public double calcularPerimetro();
+    
+    
     
 }

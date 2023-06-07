@@ -11,10 +11,37 @@ resultado final.
  */
 package E4FormasGeometricas;
 
+
+
 /**
  *
  * @author AlejaDevelops
  */
-public class Rectangulo {
+public class Rectangulo implements CalculosFormas{
+    private double base, altura;
+
+    public Rectangulo() {
+    }
+
+    public Rectangulo(double base, double altura) {
+        this.base = base;
+        this.altura = altura;
+    }
+    
+    public void crearRectangulo(){
+        System.out.println("¿Cuál es la base del rectángulo?");
+        base = leer.nextDouble();
+        System.out.println("¿Cuál es la altura del rectángulo?");
+        altura = leer.nextDouble();
+    }
+    @Override
+    public double calcularArea() {        
+        return base*altura;
+    }
+
+    @Override
+    public double calcularPerimetro() {        
+        return (base+altura)*2;
+    }
     
 }

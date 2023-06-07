@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="E5AlquilerBarco">
+  <ClassDiagramComponents>
+    <Class name="Alquiler" package="" visibility="public" xPosition="994.0" yPosition="345.0">
+      <Fields>
+        <Field name="nombreCliente" type="String" visibility="private"/>
+        <Field name="documentoCliente" type="long" visibility="private"/>
+        <Field name="fechaAlquiler" type="Date" visibility="private"/>
+        <Field name="fechaDevolucion" type="Date" visibility="private"/>
+        <Field name="posAmarre" type="int" visibility="private"/>
+        <Field name="barco" type="Barco" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularValorAlquiler" returnType="double" visibility="public">
+          <Argument type="Alquiler" name="a"/>
+        </Method>
+        <Method name="calcularModulo" returnType="double" visibility="public">
+          <Argument type="double" name="slora"/>
+        </Method>
+        <Method name="crearCliente" returnType="Alquiler" visibility="public"/>
+        <Method name="calcularDiasOcupacion" returnType="int" visibility="public">
+          <Argument type="Date" name="fechaAlquiler"/>
+          <Argument type="Date" name="fechaDevolucion"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Barco" package="" visibility="public" xPosition="662.0" yPosition="188.0">
+      <Fields>
+        <Field name="matricula" type="long" visibility="private"/>
+        <Field name="slora" type="double" visibility="private"/>
+        <Field name="anioFabricacion" type="year" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Velero" package="" visibility="public" xPosition="45.0" yPosition="77.0">
+      <Fields>
+        <Field name="cantidadMastiles" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularValorAlquilerVelero" returnType="double" visibility="public">
+          <Argument type="Velero" name="velero"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Motorizado" package="" visibility="public" xPosition="45.0" yPosition="315.0">
+      <Fields>
+        <Field name="potenciaCv" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularValorAlquilerMotorizado" returnType="double" visibility="public">
+          <Argument type="Motorizado" name="motorizado"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Yate" package="" visibility="public" xPosition="45.0" yPosition="568.0">
+      <Fields>
+        <Field name="potenciaCv" type="double" visibility="private"/>
+        <Field name="cantidadCamarotes" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularValorAlquilerYate" returnType="double" visibility="public">
+          <Argument type="Yate" name="yate"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="tiene" source="Alquiler" target="Barco" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Yate" target="Barco"/>
+    <IsRelation name="is" source="Velero" target="Barco"/>
+    <IsRelation name="is" source="Motorizado" target="Barco"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

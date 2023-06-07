@@ -15,6 +15,23 @@ package E4FormasGeometricas;
  *
  * @author AlejaDevelops
  */
-public class Circulo {
+public class Circulo implements CalculosFormas {
+    public final double pi = Math.PI;
+    private double r;
     
+    public void crearCirculo(){
+        System.out.println("Cuál es el radio del circulo");
+        r = leer.nextDouble();
+    }
+
+    @Override
+    public double calcularArea() {        
+        return pi * Math.pow(r, 2);
+    }
+
+    @Override
+    public double calcularPerimetro() {        
+        return pi * 2 * r;
+    }
+
 }

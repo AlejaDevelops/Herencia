@@ -19,7 +19,15 @@ public class FormasGeometricasMain {
 
     
     public static void main(String[] args) {
-        // TODO code application logic here
+        Rectangulo rectangulo = new Rectangulo();
+        rectangulo.crearRectangulo();
+        System.out.println("El área del rectangulo es: "+rectangulo.calcularArea());
+        System.out.println("El perímetro del rectangulo es: "+rectangulo.calcularPerimetro());
+        System.out.println(" ");
+        Circulo circulo = new Circulo();
+        circulo.crearCirculo();
+        System.out.println("El área del circulo es: "+circulo.calcularArea());
+        System.out.println("El perímetro del circulo es: "+circulo.calcularPerimetro());
     }
     
 }
