@@ -71,7 +71,7 @@ public class EdificioMain {
         }
         System.out.println("------------------------------------------");
         System.out.println("La cantidad de Polideportivos techados es: " + n);
-        System.out.println("La cantidad de Polideportivos abierto es: " + n);
+        System.out.println("La cantidad de Polideportivos abiertos es: " + n);
 
     }
 
