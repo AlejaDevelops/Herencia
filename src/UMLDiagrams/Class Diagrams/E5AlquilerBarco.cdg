@@ -2,7 +2,7 @@
 
 <ClassDiagram name="E5AlquilerBarco">
   <ClassDiagramComponents>
-    <Class name="Alquiler" package="" visibility="public" xPosition="994.0" yPosition="345.0">
+    <Class name="Alquiler" package="" visibility="public" xPosition="1031.0" yPosition="249.0">
       <Fields>
         <Field name="nombreCliente" type="String" visibility="private"/>
         <Field name="documentoCliente" type="long" visibility="private"/>
@@ -26,7 +26,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Barco" package="" visibility="public" xPosition="662.0" yPosition="188.0">
+    <Class name="Barco" package="" visibility="public" xPosition="724.0" yPosition="315.0">
       <Fields>
         <Field name="matricula" type="long" visibility="private"/>
         <Field name="slora" type="double" visibility="private"/>
@@ -35,7 +35,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Velero" package="" visibility="public" xPosition="45.0" yPosition="77.0">
+    <Class name="Velero" package="" visibility="public" xPosition="140.0" yPosition="96.0">
       <Fields>
         <Field name="cantidadMastiles" type="int" visibility="private"/>
       </Fields>
@@ -46,7 +46,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Motorizado" package="" visibility="public" xPosition="45.0" yPosition="315.0">
+    <Class name="Motorizado" package="" visibility="public" xPosition="140.0" yPosition="325.0">
       <Fields>
         <Field name="potenciaCv" type="double" visibility="private"/>
       </Fields>
@@ -57,7 +57,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Yate" package="" visibility="public" xPosition="45.0" yPosition="568.0">
+    <Class name="Yate" package="" visibility="public" xPosition="173.0" yPosition="543.0">
       <Fields>
         <Field name="potenciaCv" type="double" visibility="private"/>
         <Field name="cantidadCamarotes" type="int" visibility="private"/>

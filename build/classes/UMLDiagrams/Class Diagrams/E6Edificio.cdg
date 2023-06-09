@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="E6Edificio">
+  <ClassDiagramComponents>
+    <Class name="Edificio" package="" visibility="public" xPosition="115.0" yPosition="223.0">
+      <Fields>
+        <Field name="ancho" type="double" visibility="protected"/>
+        <Field name="alto" type="double" visibility="protected"/>
+        <Field name="largo" type="double" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularSuperficie" returnType="double" visibility="public" isAbstract="true"/>
+        <Method name="calcularVolumen" returnType="double" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="Polideportivo" package="" visibility="public" xPosition="509.0" yPosition="391.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="tipoInstalacion" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="EdificioDeOficinas" package="" visibility="public" xPosition="509.0" yPosition="137.0">
+      <Fields>
+        <Field name="numOficinas" type="int" visibility="private"/>
+        <Field name="cantPersonasPorOficina" type="int" visibility="private"/>
+        <Field name="numPisos" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="cantPersonas" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Polideportivo" target="Edificio"/>
+    <IsRelation name="is" source="EdificioDeOficinas" target="Edificio"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

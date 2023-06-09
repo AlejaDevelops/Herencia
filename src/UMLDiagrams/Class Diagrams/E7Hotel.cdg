@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="E7Hotel">
+  <ClassDiagramComponents>
+    <Class name="Hotel" package="" visibility="public" xPosition="378.0" yPosition="78.0">
+      <Fields>
+        <Field name="cantHab" type="int" visibility="private"/>
+        <Field name="numCamasTotal" type="int" visibility="private"/>
+        <Field name="cantPisos" type="int" visibility="private"/>
+        <Field name="precioHab" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Hotel4Estrellas" package="" visibility="public" xPosition="403.0" yPosition="343.0">
+      <Fields>
+        <Field name="gimnasio" type="boolean" visibility="private"/>
+        <Field name="nombreRestaurante" type="String" visibility="private"/>
+        <Field name="capacidadRestaurante" type="int" visibility="private"/>
+        <Field name="untitledField" type="Object" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Hotel5Estrellas" package="" visibility="public" xPosition="348.0" yPosition="602.0">
+      <Fields>
+        <Field name="cantSalonesConferencia" type="int" visibility="private"/>
+        <Field name="cantSuites" type="int" visibility="private"/>
+        <Field name="cantLimosinas" type="int" visibility="private"/>
+        <Field name="clasificacionGim" type="char" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Hotel4Estrellas" target="Hotel"/>
+    <IsRelation name="is" source="Hotel5Estrellas" target="Hotel4Estrellas"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
