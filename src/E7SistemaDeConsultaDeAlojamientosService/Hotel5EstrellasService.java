@@ -57,7 +57,11 @@ public class Hotel5EstrellasService extends Hotel4EstrellasService {
 
     public Hotel5Estrellas crearHotel5Estrellas() {
         Hotel5Estrellas hotel5 = new Hotel5Estrellas();
-
+        hotel5.setCantSalonesConferencia(r.nextInt(10) + 1);
+        hotel5.setCantSuites(r.nextInt(8) + 1);
+        hotel5.setCantLimosinas(r.nextInt(4) + 1);
+        hotel5.setPrecioHab(calcularPrecioHabitacion5Estrellas(hotel5));
+        
         Hotel4Estrellas hotel4 = super.crearHotel4Estrellas();
         hotel5.setCantHab(hotel4.getCantHab());
         hotel5.setNumCamasTotal(hotel4.getNumCamasTotal());
@@ -66,11 +70,10 @@ public class Hotel5EstrellasService extends Hotel4EstrellasService {
         hotel5.setNombreRestaurante(hotel4.getNombreRestaurante());
         hotel5.setCapacidadRestaurante(hotel4.getCapacidadRestaurante());
         hotel5.setClasificacionGim(hotel4.getClasificacionGim());
-
-        hotel5.setCantSalonesConferencia(r.nextInt(10) + 1);
-        hotel5.setCantSuites(r.nextInt(8) + 1);
-        hotel5.setCantLimosinas(r.nextInt(4) + 1);
-        hotel5.setPrecioHab(calcularPrecioHabitacion5Estrellas(hotel5));
+        hotel5.setNombre(hotel4.getNombre());
+        hotel5.setDireccion(hotel4.getDireccion());
+        hotel5.setLocalidad(hotel4.getLocalidad());
+        hotel5.setNombreGerente(hotel4.getNombreGerente());        
 
         return hotel5;
     }

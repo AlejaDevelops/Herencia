@@ -46,23 +46,30 @@ Realizar un sistema de consulta que le permite al usuario consultar por diferent
  */
 package E7SistemaDeConsultaDeAlojamientosService;
 
+import E7SistemaDeConsultaDeAlojamientos.Alojamientos;
 import E7SistemaDeConsultaDeAlojamientos.Hotel;
-import java.util.Random;
 
 /**
  *
  * @author AlejaDevelops
  */
-public class HotelService {
-    Random r = new Random();
-    public Hotel crearHotel(){
+public class HotelService extends AlojamientosService {
+
+    public Hotel crearHotel() {
         Hotel hotel = new Hotel();
-        hotel.setCantHab(r.nextInt(100)+20);
-        hotel.setNumCamasTotal(r.nextInt(200)+30);
-        hotel.setCantPisos(r.nextInt(8)+1);
-        hotel.setPrecioHab(0); //Los precios serán determinados en la clase hija y nieta
-        
+
+        AlojamientosService as = new AlojamientosService();
+        Alojamientos alojamiento = as.crearAlojamiento();
+        hotel.setNombre(alojamiento.getNombre());
+        hotel.setDireccion(alojamiento.getDireccion());
+        hotel.setLocalidad(alojamiento.getLocalidad());
+        hotel.setNombreGerente(alojamiento.getNombreGerente());
+        hotel.setCantHab(r.nextInt(100) + 20);
+        hotel.setNumCamasTotal(r.nextInt(200) + 30);
+        hotel.setCantPisos(r.nextInt(8) + 1);
+        hotel.setPrecioHab(0); //Los precios serán determinados en la clase hija y nieta        
+
         return hotel;
     }
-    
+
 }

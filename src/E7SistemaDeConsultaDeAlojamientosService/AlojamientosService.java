@@ -46,10 +46,49 @@ Realizar un sistema de consulta que le permite al usuario consultar por diferent
  */
 package E7SistemaDeConsultaDeAlojamientosService;
 
+import E7SistemaDeConsultaDeAlojamientos.Alojamientos;
+import java.util.Random;
+
 /**
  *
  * @author AlejaDevelops
  */
 public class AlojamientosService {
+
+    Random r = new Random();
+
+    public Alojamientos crearAlojamiento() {
+        Alojamientos alojamiento = new Alojamientos();
+        alojamiento.setNombre(crearNombre());
+        alojamiento.setDireccion(crearDireccion());
+        alojamiento.setLocalidad(crearLocalidad());
+        alojamiento.setNombreGerente(crearNombreGerente());
+
+        return alojamiento;
+    }
+
+    public String crearNombre() {
+        String[] nombresHoteles = {"Hotel Plaza", "Grand Hyatt", "Marriott Resort", "Hilton Garden Inn", "Ritz Carlton", "Holiday Inn", "Sheraton Suites", "Radisson Blu", "Four Seasons", "The Westin", "InterContinental", "Motel 6", "Fairmont Hotel", "Hyatt Regency", "DoubleTree by Hilton", "Park Plaza", "Hotel Indigo", "Best Western", "Mandarin Oriental", "The Peninsula"};
+        String nombre = nombresHoteles[r.nextInt(nombresHoteles.length)];
+        return nombre;
+    }
+
+    public String crearDireccion() {
+        String[] direcciones = {"Calle 10 #25-12", "Avenida Principal #45-10", "Carrera 7 #15-30", "Calle 23 #18-5", "Avenida Central #70-22", "Carrera 12 #8-14", "Calle 35 #40-11", "Avenida Norte #17-9", "Carrera 9 #12-6", "Calle 14 #30-8", "Avenida Sur #25-17", "Carrera 6 #11-3", "Calle 28 #16-20", "Avenida Este #48-7", "Carrera 11 #22-14", "Calle 20 #33-9", "Avenida Oeste #60-12", "Carrera 8 #19-4", "Calle 32 #27-15", "Avenida Central #50-6"};
+        String direccion = direcciones[r.nextInt(direcciones.length)];
+        return direccion;
+    }
     
+    public String crearLocalidad(){
+        String[] localidadesBogota = { "Usaquén", "Chapinero", "Santa Fe", "San Cristóbal", "Usme", "Tunjuelito", "Bosa", "Kennedy", "Fontibón", "Engativá", "Suba", "Barrios Unidos", "Teusaquillo", "Los Mártires", "Antonio Nariño", "Puente Aranda", "La Candelaria", "Rafael Uribe Uribe", "Ciudad Bolívar", "Sumapaz" };
+        String localidad = localidadesBogota[r.nextInt(localidadesBogota.length)];
+        return localidad;
+    }
+    
+    public String crearNombreGerente(){
+        String[] nombresGerentes = { "Sofía García", "Mateo López", "Isabella Martínez", "Luis González", "Valentina Rodríguez", "Sebastián Fernández", "Mariana Pérez", "Diego Sánchez", "Camila Torres", "Samuel Ramírez", "Lucía Romero", "Daniel Herrera", "Valeria Jiménez", "Juan Silva", "Ana Morales", "Pedro Ortega", "Gabriela Castro", "Andrés Vargas", "Carolina Ríos", "Alejandro Mendoza" };
+        String nombreGerente = nombresGerentes[r.nextInt(nombresGerentes.length)];
+        return nombreGerente;
+    }
+
 }

@@ -58,12 +58,13 @@ public class Residencias extends AlojamientoExtraHotelero{
     public Residencias() {
     }
 
-    public Residencias(int cantidadDeHabitaciones, boolean tieneDescuentoParaGremios, boolean tieneCampoDeportivo, boolean esPrivado, double areaDelAlojamiento) {
-        super(esPrivado, areaDelAlojamiento);
+    public Residencias(int cantidadDeHabitaciones, boolean tieneDescuentoParaGremios, boolean tieneCampoDeportivo, boolean esPrivado, double areaDelAlojamiento, String nombre, String direccion, String localidad, String nombreGerente) {
+        super(esPrivado, areaDelAlojamiento, nombre, direccion, localidad, nombreGerente);
         this.cantidadDeHabitaciones = cantidadDeHabitaciones;
         this.tieneDescuentoParaGremios = tieneDescuentoParaGremios;
         this.tieneCampoDeportivo = tieneCampoDeportivo;
     }
+    
 
     public int getCantidadDeHabitaciones() {
         return cantidadDeHabitaciones;
@@ -91,7 +92,7 @@ public class Residencias extends AlojamientoExtraHotelero{
 
     @Override
     public String toString() {
-        return "Residencia \n Cantidad de habitaciones: " + cantidadDeHabitaciones + "\n Tiene descuento para gremios: " + tieneDescuentoParaGremios + "\n Tiene campo deportivo: " + tieneCampoDeportivo+super.toString();
+        return "Residencia"+super.toString()+"\n Cantidad de habitaciones: " + cantidadDeHabitaciones + "\n Tiene descuento para gremios: " + tieneDescuentoParaGremios + "\n Tiene campo deportivo: " + tieneCampoDeportivo;
     }
 
     

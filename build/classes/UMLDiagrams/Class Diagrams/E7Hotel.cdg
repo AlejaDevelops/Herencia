@@ -2,7 +2,7 @@
 
 <ClassDiagram name="E7Hotel">
   <ClassDiagramComponents>
-    <Class name="Hotel" package="" visibility="public" xPosition="380.0" yPosition="450.0">
+    <Class name="Hotel" package="" visibility="public" xPosition="389.0" yPosition="556.0">
       <Fields>
         <Field name="cantHab" type="int" visibility="private"/>
         <Field name="numCamasTotal" type="int" visibility="private"/>
@@ -15,7 +15,7 @@
         <Method name="calcularPrecioHabitacion" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Hotel4Estrellas" package="" visibility="public" xPosition="64.0" yPosition="628.0">
+    <Class name="Hotel4Estrellas" package="" visibility="public" xPosition="117.0" yPosition="672.0">
       <Fields>
         <Field name="gimnasio" type="boolean" visibility="private"/>
         <Field name="nombreRestaurante" type="String" visibility="private"/>
@@ -25,7 +25,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Hotel5Estrellas" package="" visibility="public" xPosition="326.0" yPosition="738.0">
+    <Class name="Hotel5Estrellas" package="" visibility="public" xPosition="389.0" yPosition="787.0">
       <Fields>
         <Field name="cantSalonesConferencia" type="int" visibility="private"/>
         <Field name="cantSuites" type="int" visibility="private"/>
@@ -34,14 +34,9 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Alojamientos" package="" visibility="public" xPosition="433.0" yPosition="35.0">
+    <Class name="SistemaConsultaAlojamientos" package="" visibility="public" xPosition="811.0" yPosition="293.0">
       <Fields>
-        <Field name="nombre" type="String" visibility="private"/>
-        <Field name="direccion" type="String" visibility="private"/>
-        <Field name="localidad" type="String" visibility="private"/>
-        <Field name="nombreGerente" type="String" visibility="private"/>
-        <Field name="listaDeHoteles" type="ArrayList&lt;Hotel&gt;" visibility="private"/>
-        <Field name="listaAlojamientosExtraH" type="ArrayList&lt;AlojamientosExtraHoteleros&gt;" visibility="private"/>
+        <Field name="listaAlojamientos" type="ArrayList&lt;Alojamientos&gt;" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods>
@@ -51,11 +46,10 @@
         <Method name="consultarHotelesOrdenadosPorPrecio" returnType="void" visibility="public"/>
         <Method name="consultarCampingsConRestaurante" returnType="void" visibility="public"/>
         <Method name="consultarResidenciasQueAplicanDescuento" returnType="void" visibility="public"/>
-        <Method name="crearListaHoteles" returnType="void" visibility="public"/>
-        <Method name="intcrearListaAlojamientosExtraHoteleros" returnType="void" visibility="public"/>
+        <Method name="crearListaAlojamientos" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="AlojamientosExtraHoteleros" package="" visibility="public" xPosition="693.0" yPosition="450.0">
+    <Class name="AlojamientosExtraHoteleros" package="" visibility="public" xPosition="392.0" yPosition="128.0">
       <Fields>
         <Field name="esPrivado" type="boolean" visibility="private"/>
         <Field name="areaDelAlojamiento" type="double" visibility="private"/>
@@ -65,7 +59,7 @@
         <Method name="crearAlojamientoExtraH" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Camping" package="" visibility="public" xPosition="583.0" yPosition="748.0">
+    <Class name="Camping" package="" visibility="public" xPosition="88.0" yPosition="46.0">
       <Fields>
         <Field name="capacidadMaxCarpas" type="int" visibility="private"/>
         <Field name="cantBaniosDisponibles" type="int" visibility="private"/>
@@ -74,7 +68,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Residencias" package="" visibility="public" xPosition="856.0" yPosition="748.0">
+    <Class name="Residencias" package="" visibility="public" xPosition="692.0" yPosition="57.0">
       <Fields>
         <Field name="cantidadDeHabitaciones" type="int" visibility="private"/>
         <Field name="tieneDescuentoParaGremios" type="boolean" visibility="private"/>
@@ -83,13 +77,27 @@
       <Constructors/>
       <Methods/>
     </Class>
+    <Class name="Alojamiento" package="" visibility="public" xPosition="400.0" yPosition="346.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+        <Field name="localidad" type="String" visibility="private"/>
+        <Field name="nombreGerente" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearAlojamiento" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <IsRelation name="is" source="Camping" target="AlojamientosExtraHoteleros"/>
-    <HasRelation name="tiene" source="Alojamientos" target="AlojamientosExtraHoteleros" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
-    <HasRelation name="tiene" source="Alojamientos" target="Hotel" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
-    <IsRelation name="is" source="Hotel4Estrellas" target="Hotel"/>
-    <IsRelation name="is" source="Hotel5Estrellas" target="Hotel4Estrellas"/>
     <IsRelation name="is" source="Residencias" target="AlojamientosExtraHoteleros"/>
+    <IsRelation name="is" source="Hotel5Estrellas" target="Hotel4Estrellas"/>
+    <HasRelation name="tiene" source="SistemaConsultaAlojamientos" target="AlojamientosExtraHoteleros" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <IsRelation name="is" source="AlojamientosExtraHoteleros" target="Alojamiento"/>
+    <IsRelation name="is" source="Hotel4Estrellas" target="Hotel"/>
+    <IsRelation name="is" source="Camping" target="AlojamientosExtraHoteleros"/>
+    <IsRelation name="is" source="Hotel" target="Alojamiento"/>
+    <HasRelation name="tiene" source="SistemaConsultaAlojamientos" target="Hotel" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
   </ClassDiagramRelations>
 </ClassDiagram>

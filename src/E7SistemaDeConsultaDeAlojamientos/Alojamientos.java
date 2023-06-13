@@ -46,27 +46,26 @@ Realizar un sistema de consulta que le permite al usuario consultar por diferent
  */
 package E7SistemaDeConsultaDeAlojamientos;
 
-import java.util.ArrayList;
 
 /**
  *
  * @author AlejaDevelops
  */
 public class Alojamientos {
-    private String nombre;
-    private String direccion;
-    private String localidad;
-    private String nombreGerente;
-    private ArrayList<Hotel> listaDeHoteles;
-    private ArrayList<AlojamientoExtraHotelero> listaAlojamientosExtraH;
+    protected String nombre;
+    protected String direccion;
+    protected String localidad;
+    protected String nombreGerente;
+   
 
-    public Alojamientos(String nombre, String direccion, String localidad, String nombreGerente, ArrayList<Hotel> listaDeHoteles, ArrayList<AlojamientoExtraHotelero> listaAlojamientosExtraH) {
+    public Alojamientos() {
+    }
+
+    public Alojamientos(String nombre, String direccion, String localidad, String nombreGerente) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.localidad = localidad;
         this.nombreGerente = nombreGerente;
-        this.listaDeHoteles = listaDeHoteles;
-        this.listaAlojamientosExtraH = listaAlojamientosExtraH;
     }
 
     public String getNombre() {
@@ -101,26 +100,14 @@ public class Alojamientos {
         this.nombreGerente = nombreGerente;
     }
 
-    public ArrayList<Hotel> getListaDeHoteles() {
-        return listaDeHoteles;
-    }
-
-    public void setListaDeHoteles(ArrayList<Hotel> listaDeHoteles) {
-        this.listaDeHoteles = listaDeHoteles;
-    }
-
-    public ArrayList<AlojamientoExtraHotelero> getListaAlojamientosExtraH() {
-        return listaAlojamientosExtraH;
-    }
-
-    public void setListaAlojamientosExtraH(ArrayList<AlojamientoExtraHotelero> listaAlojamientosExtraH) {
-        this.listaAlojamientosExtraH = listaAlojamientosExtraH;
-    }
-
     @Override
     public String toString() {
-        return "Alojamientos{" + "nombre=" + nombre + ", direccion=" + direccion + ", localidad=" + localidad + ", nombreGerente=" + nombreGerente + ", listaDeHoteles=" + listaDeHoteles + ", listaAlojamientosExtraH=" + listaAlojamientosExtraH + '}';
+        return "\n Nombre alojamiento: " + nombre + "\n Dirección: " + direccion + "\n Localidad: " + localidad + "\n Nombre gerente:" + nombreGerente;
     }
     
+    
+    
+
+   
     
 }

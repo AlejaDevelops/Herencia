@@ -53,17 +53,20 @@ import E7SistemaDeConsultaDeAlojamientos.Camping;
  *
  * @author AlejaDevelops
  */
-public class CampingService extends AlojamientoExtraHoteleroService{
-
-    public Camping crearCamping (){
+public class CampingService extends AlojamientoExtraHoteleroService {
+    
+    public Camping crearCamping() {
         Camping camping = new Camping();
-        camping.setCapacidadMaxCarpas(r.nextInt(100)+10);
-        camping.setCantBaniosDisponibles(r.nextInt(10)+2);
-        camping.setTieneRestaurante(r.nextBoolean());      
-        
+        camping.setCapacidadMaxCarpas(r.nextInt(100) + 10);
+        camping.setCantBaniosDisponibles(r.nextInt(10) + 2);
+        camping.setTieneRestaurante(r.nextBoolean());        
         AlojamientoExtraHotelero alojamientoEH = super.crearAlojamientoExtraH();
         camping.setEsPrivado(alojamientoEH.isEsPrivado());
-        camping.setAreaDelAlojamiento(alojamientoEH.getAreaDelAlojamiento());        
+        camping.setAreaDelAlojamiento(alojamientoEH.getAreaDelAlojamiento());
+        camping.setNombre(alojamientoEH.getNombre());
+        camping.setDireccion(alojamientoEH.getDireccion());
+        camping.setLocalidad(alojamientoEH.getLocalidad());
+        camping.setNombreGerente(alojamientoEH.getNombreGerente());
         
         return camping;
     }

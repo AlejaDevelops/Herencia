@@ -50,14 +50,16 @@ package E7SistemaDeConsultaDeAlojamientos;
  *
  * @author AlejaDevelops
  */
-public class AlojamientoExtraHotelero {
+public class AlojamientoExtraHotelero extends Alojamientos {
+
     protected boolean esPrivado;
     protected double areaDelAlojamiento;
 
     public AlojamientoExtraHotelero() {
     }
 
-    public AlojamientoExtraHotelero(boolean esPrivado, double areaDelAlojamiento) {
+    public AlojamientoExtraHotelero(boolean esPrivado, double areaDelAlojamiento, String nombre, String direccion, String localidad, String nombreGerente) {
+        super(nombre, direccion, localidad, nombreGerente);
         this.esPrivado = esPrivado;
         this.areaDelAlojamiento = areaDelAlojamiento;
     }
@@ -80,8 +82,7 @@ public class AlojamientoExtraHotelero {
 
     @Override
     public String toString() {
-        return  "\n Es privado: " + esPrivado + "\n Area de alojamiento: " + areaDelAlojamiento+" m2";
+        return super.toString()+"\n Es privado: " + esPrivado + "\n Area de alojamiento: " + areaDelAlojamiento + " m2";
     }
-    
-    
+
 }

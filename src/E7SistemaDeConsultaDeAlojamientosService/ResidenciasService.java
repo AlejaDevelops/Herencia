@@ -57,13 +57,17 @@ public class ResidenciasService extends AlojamientoExtraHoteleroService {
 
     public Residencias crearResidencia() {
         Residencias residencia = new Residencias();
+
         residencia.setCantidadDeHabitaciones(r.nextInt(50) + 10);
         residencia.setTieneDescuentoParaGremios(r.nextBoolean());
         residencia.setTieneCampoDeportivo(r.nextBoolean());
-
         AlojamientoExtraHotelero alojamientoEH = super.crearAlojamientoExtraH();
         residencia.setEsPrivado(alojamientoEH.isEsPrivado());
         residencia.setAreaDelAlojamiento(alojamientoEH.getAreaDelAlojamiento());
+        residencia.setNombre(alojamientoEH.getNombre());
+        residencia.setDireccion(alojamientoEH.getDireccion());
+        residencia.setLocalidad(alojamientoEH.getLocalidad());
+        residencia.setNombreGerente(alojamientoEH.getNombreGerente());
 
         return residencia;
     }

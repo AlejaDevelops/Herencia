@@ -47,6 +47,7 @@ Realizar un sistema de consulta que le permite al usuario consultar por diferent
 package E7SistemaDeConsultaDeAlojamientosService;
 
 import E7SistemaDeConsultaDeAlojamientos.AlojamientoExtraHotelero;
+import E7SistemaDeConsultaDeAlojamientos.Alojamientos;
 import java.util.Random;
 
 /**
@@ -61,6 +62,12 @@ public class AlojamientoExtraHoteleroService {
         AlojamientoExtraHotelero alojamientoEH = new AlojamientoExtraHotelero();
         alojamientoEH.setAreaDelAlojamiento(r.nextInt(600) + 100);
         alojamientoEH.setEsPrivado(r.nextBoolean());
+        AlojamientosService as = new AlojamientosService();
+        Alojamientos alojamiento = as.crearAlojamiento();
+        alojamientoEH.setNombre(alojamiento.getNombre());
+        alojamientoEH.setDireccion(alojamiento.getDireccion());
+        alojamientoEH.setLocalidad(alojamiento.getLocalidad());
+        alojamientoEH.setNombreGerente(alojamiento.getNombreGerente());
 
         return alojamientoEH;
     }

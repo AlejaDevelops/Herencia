@@ -46,56 +46,39 @@ Realizar un sistema de consulta que le permite al usuario consultar por diferent
  */
 package E7SistemaDeConsultaDeAlojamientos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author AlejaDevelops
  */
-public class Camping extends AlojamientoExtraHotelero{
-    private int capacidadMaxCarpas;
-    private int cantBaniosDisponibles;
-    private boolean tieneRestaurante;
+public class SistemaConsultaAlojamientos {
 
-    public Camping() {
+    private ArrayList<Alojamientos> listaDeAlojamientos;
+
+    public SistemaConsultaAlojamientos() {
     }
 
-    public Camping(int capacidadMaxCarpas, int cantBaniosDisponibles, boolean tieneRestaurante, boolean esPrivado, double areaDelAlojamiento, String nombre, String direccion, String localidad, String nombreGerente) {
-        super(esPrivado, areaDelAlojamiento, nombre, direccion, localidad, nombreGerente);
-        this.capacidadMaxCarpas = capacidadMaxCarpas;
-        this.cantBaniosDisponibles = cantBaniosDisponibles;
-        this.tieneRestaurante = tieneRestaurante;
+    public SistemaConsultaAlojamientos(ArrayList<Alojamientos> listaDeAlojamientos) {
+        this.listaDeAlojamientos = listaDeAlojamientos;
     }
 
-    
-
-    public int getCapacidadMaxCarpas() {
-        return capacidadMaxCarpas;
+    public ArrayList<Alojamientos> getListaDeAlojamientos() {
+        return listaDeAlojamientos;
     }
 
-    public void setCapacidadMaxCarpas(int capacidadMaxCarpas) {
-        this.capacidadMaxCarpas = capacidadMaxCarpas;
-    }
-
-    public int getCantBaniosDisponibles() {
-        return cantBaniosDisponibles;
-    }
-
-    public void setCantBaniosDisponibles(int cantBaniosDisponibles) {
-        this.cantBaniosDisponibles = cantBaniosDisponibles;
-    }
-
-    public boolean isTieneRestaurante() {
-        return tieneRestaurante;
-    }
-
-    public void setTieneRestaurante(boolean tieneRestaurante) {
-        this.tieneRestaurante = tieneRestaurante;
+    public void setListaDeAlojamientos(ArrayList<Alojamientos> listaDeAlojamientos) {
+        this.listaDeAlojamientos = listaDeAlojamientos;
     }
 
     @Override
     public String toString() {
-        return "Camping" +super.toString()+ "\n Capacidad máxima de carpas: " + capacidadMaxCarpas + "\n Cantidad de baños: " + cantBaniosDisponibles + "\n Tiene restaurante: " + tieneRestaurante;
+        return "Lista de alojamientos \n" + listaDeAlojamientos;
     }
+
+   
+
     
     
-    
+     
 }

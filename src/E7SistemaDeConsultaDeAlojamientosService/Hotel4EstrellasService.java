@@ -67,7 +67,11 @@ public class Hotel4EstrellasService extends HotelService {
         hotel4.setNumCamasTotal(hotel.getNumCamasTotal());
         hotel4.setCantPisos(hotel.getCantPisos());        
         hotel4.setPrecioHab(calcularPrecioHabitacion(hotel4));
-
+        hotel4.setNombre(hotel.getNombre());
+        hotel4.setDireccion(hotel.getDireccion());
+        hotel4.setLocalidad(hotel.getLocalidad());
+        hotel4.setNombreGerente(hotel.getNombreGerente());        
+ 
         return hotel4;
     }
 
