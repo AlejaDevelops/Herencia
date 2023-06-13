@@ -47,11 +47,21 @@ Realizar un sistema de consulta que le permite al usuario consultar por diferent
 package E7SistemaDeConsultaDeAlojamientosService;
 
 import E7SistemaDeConsultaDeAlojamientos.AlojamientoExtraHotelero;
+import java.util.Random;
 
 /**
  *
  * @author AlejaDevelops
  */
-public abstract class AlojamientoExtraHoteleroService {
-    public abstract AlojamientoExtraHotelero crearAlojamientoExtraH();
+public class AlojamientoExtraHoteleroService {
+
+    Random r = new Random();
+
+    public AlojamientoExtraHotelero crearAlojamientoExtraH() {
+        AlojamientoExtraHotelero alojamientoEH = new AlojamientoExtraHotelero();
+        alojamientoEH.setAreaDelAlojamiento(r.nextInt(600) + 100);
+        alojamientoEH.setEsPrivado(r.nextBoolean());
+
+        return alojamientoEH;
+    }
 }

@@ -50,6 +50,50 @@ package E7SistemaDeConsultaDeAlojamientos;
  *
  * @author AlejaDevelops
  */
-public class Camping {
+public class Camping extends AlojamientoExtraHotelero{
+    private int capacidadMaxCarpas;
+    private int cantBaniosDisponibles;
+    private boolean tieneRestaurante;
+
+    public Camping() {
+    }
+
+    public Camping(int capacidadMaxCarpas, int cantBaniosDisponibles, boolean tieneRestaurante, boolean esPrivado, double areaDelAlojamiento) {
+        super(esPrivado, areaDelAlojamiento);
+        this.capacidadMaxCarpas = capacidadMaxCarpas;
+        this.cantBaniosDisponibles = cantBaniosDisponibles;
+        this.tieneRestaurante = tieneRestaurante;
+    }
+
+    public int getCapacidadMaxCarpas() {
+        return capacidadMaxCarpas;
+    }
+
+    public void setCapacidadMaxCarpas(int capacidadMaxCarpas) {
+        this.capacidadMaxCarpas = capacidadMaxCarpas;
+    }
+
+    public int getCantBaniosDisponibles() {
+        return cantBaniosDisponibles;
+    }
+
+    public void setCantBaniosDisponibles(int cantBaniosDisponibles) {
+        this.cantBaniosDisponibles = cantBaniosDisponibles;
+    }
+
+    public boolean isTieneRestaurante() {
+        return tieneRestaurante;
+    }
+
+    public void setTieneRestaurante(boolean tieneRestaurante) {
+        this.tieneRestaurante = tieneRestaurante;
+    }
+
+    @Override
+    public String toString() {
+        return "Camping \n Capacidad máxima de carpas: " + capacidadMaxCarpas + "\n Cantidad de baños: " + cantBaniosDisponibles + "\n Tiene restaurante: " + tieneRestaurante+super.toString();
+    }
+    
+    
     
 }

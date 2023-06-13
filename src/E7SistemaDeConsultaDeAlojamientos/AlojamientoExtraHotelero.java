@@ -50,7 +50,7 @@ package E7SistemaDeConsultaDeAlojamientos;
  *
  * @author AlejaDevelops
  */
-public abstract class AlojamientoExtraHotelero {
+public class AlojamientoExtraHotelero {
     protected boolean esPrivado;
     protected double areaDelAlojamiento;
 
@@ -80,7 +80,7 @@ public abstract class AlojamientoExtraHotelero {
 
     @Override
     public String toString() {
-        return "AlojamientoExtraHotelero{" + "esPrivado=" + esPrivado + ", areaDelAlojamiento=" + areaDelAlojamiento + '}';
+        return  "\n Es privado: " + esPrivado + "\n Area de alojamiento: " + areaDelAlojamiento+" m2";
     }
     
     

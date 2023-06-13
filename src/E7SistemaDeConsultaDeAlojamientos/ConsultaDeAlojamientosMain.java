@@ -46,8 +46,10 @@ Realizar un sistema de consulta que le permite al usuario consultar por diferent
  */
 package E7SistemaDeConsultaDeAlojamientos;
 
+import E7SistemaDeConsultaDeAlojamientosService.CampingService;
 import E7SistemaDeConsultaDeAlojamientosService.Hotel4EstrellasService;
 import E7SistemaDeConsultaDeAlojamientosService.Hotel5EstrellasService;
+import E7SistemaDeConsultaDeAlojamientosService.ResidenciasService;
 
 /**
  *
@@ -61,11 +63,19 @@ public class ConsultaDeAlojamientosMain {
     public static void main(String[] args) {
         Hotel4EstrellasService h4es = new Hotel4EstrellasService();
         Hotel4Estrellas hotel4 = h4es.crearHotel4Estrellas();
-        System.out.println("*** Hotel 4 estrellas ***"+hotel4+"\n Precio por habitación: $"+hotel4.getPrecioHab());
+        System.out.println("Hotel 4 estrellas"+hotel4+"\n Precio por habitación: $"+hotel4.getPrecioHab());
         System.out.println("-------------------------------");
         Hotel5EstrellasService h5es = new Hotel5EstrellasService();
         Hotel5Estrellas hotel5 = h5es.crearHotel5Estrellas();
         System.out.println(hotel5);
+        System.out.println("-------------------------------");
+        CampingService cs = new CampingService();
+        Camping camping = cs.crearCamping();
+        System.out.println(camping);
+        System.out.println("-------------------------------");
+        ResidenciasService rs = new ResidenciasService();
+        Residencias resicencia = rs.crearResidencia();
+        System.out.println(resicencia);
     }
     
 }

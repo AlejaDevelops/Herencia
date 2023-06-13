@@ -46,55 +46,81 @@ Realizar un sistema de consulta que le permite al usuario consultar por diferent
  */
 package E7SistemaDeConsultaDeAlojamientos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author AlejaDevelops
  */
-public class Residencias extends AlojamientoExtraHotelero{
-    private int cantidadDeHabitaciones;
-    private boolean tieneDescuentoParaGremios;
-    private boolean tieneCampoDeportivo;
+public class Alojamientos {
+    private String nombre;
+    private String direccion;
+    private String localidad;
+    private String nombreGerente;
+    private ArrayList<Hotel> listaDeHoteles;
+    private ArrayList<AlojamientoExtraHotelero> listaAlojamientosExtraH;
 
-    public Residencias() {
+    public Alojamientos(String nombre, String direccion, String localidad, String nombreGerente, ArrayList<Hotel> listaDeHoteles, ArrayList<AlojamientoExtraHotelero> listaAlojamientosExtraH) {
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.localidad = localidad;
+        this.nombreGerente = nombreGerente;
+        this.listaDeHoteles = listaDeHoteles;
+        this.listaAlojamientosExtraH = listaAlojamientosExtraH;
     }
 
-    public Residencias(int cantidadDeHabitaciones, boolean tieneDescuentoParaGremios, boolean tieneCampoDeportivo, boolean esPrivado, double areaDelAlojamiento) {
-        super(esPrivado, areaDelAlojamiento);
-        this.cantidadDeHabitaciones = cantidadDeHabitaciones;
-        this.tieneDescuentoParaGremios = tieneDescuentoParaGremios;
-        this.tieneCampoDeportivo = tieneCampoDeportivo;
+    public String getNombre() {
+        return nombre;
     }
 
-    public int getCantidadDeHabitaciones() {
-        return cantidadDeHabitaciones;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setCantidadDeHabitaciones(int cantidadDeHabitaciones) {
-        this.cantidadDeHabitaciones = cantidadDeHabitaciones;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public boolean isTieneDescuentoParaGremios() {
-        return tieneDescuentoParaGremios;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public void setTieneDescuentoParaGremios(boolean tieneDescuentoParaGremios) {
-        this.tieneDescuentoParaGremios = tieneDescuentoParaGremios;
+    public String getLocalidad() {
+        return localidad;
     }
 
-    public boolean isTieneCampoDeportivo() {
-        return tieneCampoDeportivo;
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
     }
 
-    public void setTieneCampoDeportivo(boolean tieneCampoDeportivo) {
-        this.tieneCampoDeportivo = tieneCampoDeportivo;
+    public String getNombreGerente() {
+        return nombreGerente;
+    }
+
+    public void setNombreGerente(String nombreGerente) {
+        this.nombreGerente = nombreGerente;
+    }
+
+    public ArrayList<Hotel> getListaDeHoteles() {
+        return listaDeHoteles;
+    }
+
+    public void setListaDeHoteles(ArrayList<Hotel> listaDeHoteles) {
+        this.listaDeHoteles = listaDeHoteles;
+    }
+
+    public ArrayList<AlojamientoExtraHotelero> getListaAlojamientosExtraH() {
+        return listaAlojamientosExtraH;
+    }
+
+    public void setListaAlojamientosExtraH(ArrayList<AlojamientoExtraHotelero> listaAlojamientosExtraH) {
+        this.listaAlojamientosExtraH = listaAlojamientosExtraH;
     }
 
     @Override
     public String toString() {
-        return "Residencia \n Cantidad de habitaciones: " + cantidadDeHabitaciones + "\n Tiene descuento para gremios: " + tieneDescuentoParaGremios + "\n Tiene campo deportivo: " + tieneCampoDeportivo+super.toString();
+        return "Alojamientos{" + "nombre=" + nombre + ", direccion=" + direccion + ", localidad=" + localidad + ", nombreGerente=" + nombreGerente + ", listaDeHoteles=" + listaDeHoteles + ", listaAlojamientosExtraH=" + listaAlojamientosExtraH + '}';
     }
-
-    
     
     
 }

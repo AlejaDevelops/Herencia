@@ -44,57 +44,27 @@ Realizar un sistema de consulta que le permite al usuario consultar por diferent
 • todos los campings con restaurante
 • todos las residencias que tienen descuento.
  */
-package E7SistemaDeConsultaDeAlojamientos;
+package E7SistemaDeConsultaDeAlojamientosService;
+
+import E7SistemaDeConsultaDeAlojamientos.AlojamientoExtraHotelero;
+import E7SistemaDeConsultaDeAlojamientos.Residencias;
 
 /**
  *
  * @author AlejaDevelops
  */
-public class Residencias extends AlojamientoExtraHotelero{
-    private int cantidadDeHabitaciones;
-    private boolean tieneDescuentoParaGremios;
-    private boolean tieneCampoDeportivo;
+public class ResidenciasService extends AlojamientoExtraHoteleroService {
 
-    public Residencias() {
+    public Residencias crearResidencia() {
+        Residencias residencia = new Residencias();
+        residencia.setCantidadDeHabitaciones(r.nextInt(50) + 10);
+        residencia.setTieneDescuentoParaGremios(r.nextBoolean());
+        residencia.setTieneCampoDeportivo(r.nextBoolean());
+
+        AlojamientoExtraHotelero alojamientoEH = super.crearAlojamientoExtraH();
+        residencia.setEsPrivado(alojamientoEH.isEsPrivado());
+        residencia.setAreaDelAlojamiento(alojamientoEH.getAreaDelAlojamiento());
+
+        return residencia;
     }
-
-    public Residencias(int cantidadDeHabitaciones, boolean tieneDescuentoParaGremios, boolean tieneCampoDeportivo, boolean esPrivado, double areaDelAlojamiento) {
-        super(esPrivado, areaDelAlojamiento);
-        this.cantidadDeHabitaciones = cantidadDeHabitaciones;
-        this.tieneDescuentoParaGremios = tieneDescuentoParaGremios;
-        this.tieneCampoDeportivo = tieneCampoDeportivo;
-    }
-
-    public int getCantidadDeHabitaciones() {
-        return cantidadDeHabitaciones;
-    }
-
-    public void setCantidadDeHabitaciones(int cantidadDeHabitaciones) {
-        this.cantidadDeHabitaciones = cantidadDeHabitaciones;
-    }
-
-    public boolean isTieneDescuentoParaGremios() {
-        return tieneDescuentoParaGremios;
-    }
-
-    public void setTieneDescuentoParaGremios(boolean tieneDescuentoParaGremios) {
-        this.tieneDescuentoParaGremios = tieneDescuentoParaGremios;
-    }
-
-    public boolean isTieneCampoDeportivo() {
-        return tieneCampoDeportivo;
-    }
-
-    public void setTieneCampoDeportivo(boolean tieneCampoDeportivo) {
-        this.tieneCampoDeportivo = tieneCampoDeportivo;
-    }
-
-    @Override
-    public String toString() {
-        return "Residencia \n Cantidad de habitaciones: " + cantidadDeHabitaciones + "\n Tiene descuento para gremios: " + tieneDescuentoParaGremios + "\n Tiene campo deportivo: " + tieneCampoDeportivo+super.toString();
-    }
-
-    
-    
-    
 }
