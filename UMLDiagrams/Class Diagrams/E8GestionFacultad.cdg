@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="E8GestionFacultad">
+  <ClassDiagramComponents>
+    <Class name="SistemaGestionPersonasFacultad" package="" visibility="public" xPosition="617.0" yPosition="30.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="cambiarEstadoCivil" returnType="Persona" visibility="public">
+          <Argument type="Persona" name="a"/>
+        </Method>
+        <Method name="reasignacionDespacho" returnType="Empleado" visibility="public">
+          <Argument type="Empleado" name="b"/>
+        </Method>
+        <Method name="matricularEnNuevoCurso" returnType="Estudiante" visibility="public">
+          <Argument type="Estudiante" name="c"/>
+        </Method>
+        <Method name="cambiarDeDepartamento" returnType="Profesor" visibility="public">
+          <Argument type="Profesor" name="d"/>
+        </Method>
+        <Method name="trasladarDeSeccion" returnType="PersonaServicio" visibility="public">
+          <Argument type="PersonaServicio" name="e"/>
+        </Method>
+        <Method name="imprimirPersonas" returnType="ArrayList&lt;Persona&gt;" visibility="public">
+          <Argument type="ArrayList&lt;Persona&gt;" name="listaPersonas"/>
+        </Method>
+        <Method name="crearPersonas" returnType="ArrayList&lt;Persona&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="" visibility="public" xPosition="338.0" yPosition="159.0">
+      <Fields>
+        <Field name="nombreCompleto" type="String" visibility="private"/>
+        <Field name="dni" type="long" visibility="private"/>
+        <Field name="estadoCivil" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Empleado" package="" visibility="public" xPosition="484.0" yPosition="419.0">
+      <Fields>
+        <Field name="anioIngreso" type="Year" visibility="private"/>
+        <Field name="numDespacho" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Profesor" package="" visibility="public" xPosition="751.0" yPosition="480.0">
+      <Fields>
+        <Field name="departamento" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Estudiante" package="" visibility="public" xPosition="186.0" yPosition="419.0">
+      <Fields>
+        <Field name="cursoMatriculado" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="PersonaServicio" package="" visibility="public" xPosition="745.0" yPosition="353.0">
+      <Fields>
+        <Field name="seccionAsignada" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Empleado" target="Persona"/>
+    <IsRelation name="is" source="Profesor" target="Empleado"/>
+    <HasRelation name="tiene" source="Persona" target="SistemaGestionPersonasFacultad" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <IsRelation name="is" source="PersonaServicio" target="Empleado"/>
+    <IsRelation name="is" source="Estudiante" target="Persona"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
