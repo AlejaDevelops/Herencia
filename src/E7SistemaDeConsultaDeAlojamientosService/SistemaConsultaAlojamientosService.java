@@ -48,10 +48,13 @@ package E7SistemaDeConsultaDeAlojamientosService;
 
 import E7SistemaDeConsultaDeAlojamientos.Alojamientos;
 import E7SistemaDeConsultaDeAlojamientos.Camping;
+import E7SistemaDeConsultaDeAlojamientos.Hotel;
 import E7SistemaDeConsultaDeAlojamientos.Hotel4Estrellas;
 import E7SistemaDeConsultaDeAlojamientos.Hotel5Estrellas;
 import E7SistemaDeConsultaDeAlojamientos.Residencias;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -71,21 +74,21 @@ public class SistemaConsultaAlojamientosService {
         for (int i = 0; i < n; i++) {
             Hotel4EstrellasService h4es = new Hotel4EstrellasService();
             Hotel4Estrellas hotel4 = h4es.crearHotel4Estrellas();
-            listaAlojamientos.add(hotel4);            
+            listaAlojamientos.add(hotel4);
         }
 
         n = r.nextInt(20) + 5; //Creación y adición a listaHoteles de n hoteles 5 estrellas
         for (int i = 0; i < n; i++) {
             Hotel5EstrellasService h5es = new Hotel5EstrellasService();
             Hotel5Estrellas hotel5 = h5es.crearHotel5Estrellas();
-            listaAlojamientos.add(hotel5);            
+            listaAlojamientos.add(hotel5);
         }
 
         n = r.nextInt(15) + 5; //Creación y adición a listaAlojamientosExtraH de n Camping        
         for (int i = 0; i < n; i++) {
             CampingService cs = new CampingService();
             Camping camping = cs.crearCamping();
-            listaAlojamientos.add(camping);            
+            listaAlojamientos.add(camping);
         }
 
         n = r.nextInt(15) + 5; //Creación y adición a listaAlojamientosExtraH de n Residencias        
@@ -99,10 +102,73 @@ public class SistemaConsultaAlojamientosService {
 
     public void consultarTodosLosAlojamientos(ArrayList<Alojamientos> listaAlojamientos) {
         for (Alojamientos aux : listaAlojamientos) {
-            System.out.println(aux);
-            System.out.println("-----------------------------------");
+            if (aux instanceof Hotel4Estrellas && !(aux instanceof Hotel5Estrellas)) {
+                System.out.println("Hotel 4 estrellas" + aux + "\n Precio por habitación: $" + ((Hotel4Estrellas) aux).getPrecioHab());
+                System.out.println("-----------------------------------");
+            } else{ 
+                System.out.println(aux);
+                System.out.println("-----------------------------------");
+            }
         }
-        
+    }
+
+    public void consultarCampingConRestaurante(ArrayList<Alojamientos> listaAlojamientos) {
+        System.out.println("Los campings con restaurantes son: ");
+        for (Alojamientos aux : listaAlojamientos) {
+            if (aux instanceof Camping) {
+                if (((Camping) aux).isTieneRestaurante()) {
+                    System.out.println(aux);
+                    System.out.println("-----------------------------------");
+                }
+
+            }
+        }
+    }
+
+    public void consultarResidenciasDescuento(ArrayList<Alojamientos> listaAlojamientos) {
+        System.out.println("Las residencias que aplican descuentos a gremios son: ");
+        for (Alojamientos aux : listaAlojamientos) {
+            if (aux instanceof Residencias) {
+                if (((Residencias) aux).isTieneDescuentoParaGremios()) {
+                    System.out.println(aux);
+                    System.out.println("-----------------------------------");
+                }
+            }
+        }
+    }
+
+    public void MostrarHotelesOrdenadosPorPrecio(ArrayList<Alojamientos> listaAlojamientos) {
+        ArrayList<Hotel> listaHoteles = new ArrayList();
+
+        for (Alojamientos auxAloja : listaAlojamientos) {
+            if (auxAloja instanceof Hotel) {
+                listaHoteles.add((Hotel) auxAloja);
+            }
+        }
+
+        Comparator<Hotel> priceComparator = new Comparator<Hotel>() {
+            @Override
+            public int compare(Hotel hotel1, Hotel hotel2) {
+                if (hotel1.getPrecioHab() < hotel2.getPrecioHab()) {
+                    return -1;
+                } else if (hotel1.getPrecioHab() > hotel2.getPrecioHab()) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        };
+        Collections.sort(listaHoteles, priceComparator);
+        for (Hotel aux : listaHoteles) {
+            if (aux instanceof Hotel4Estrellas && !(aux instanceof Hotel5Estrellas)) {
+                System.out.println("Hotel 4 estrellas" + aux + "\n Precio por habitación: $" + aux.getPrecioHab());
+                System.out.println("-----------------------------------");
+            } else {
+                System.out.println(aux);
+                System.out.println("-----------------------------------");
+            }
+
+        }
 
     }
 
@@ -111,7 +177,7 @@ public class SistemaConsultaAlojamientosService {
         int input = 0;
         System.out.println("Se está cargando la lista de alojamientos disponibles...\n");
         ArrayList<Alojamientos> listaAlojamientos = crearListaDeAlojamientos();
-        
+
         do {
             System.out.println("Elige una opción de acuerdo al siguiente menú: "
                     + "\n 1- Consultar todos los hoteles y alojamientos disponibles"
@@ -120,16 +186,19 @@ public class SistemaConsultaAlojamientosService {
                     + "\n 4- Consultar residencias que aplican descuento a gremios"
                     + "\n 5- Salir");
             input = leer.nextInt();
-            
-            switch(input){
+
+            switch (input) {
                 case 1:
                     consultarTodosLosAlojamientos(listaAlojamientos);
                     break;
                 case 2:
+                    MostrarHotelesOrdenadosPorPrecio(listaAlojamientos);
                     break;
                 case 3:
+                    consultarCampingConRestaurante(listaAlojamientos);
                     break;
                 case 4:
+                    consultarResidenciasDescuento(listaAlojamientos);
                     break;
                 case 5:
                     System.out.println("Bye!");

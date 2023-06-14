@@ -2,7 +2,7 @@
 
 <ClassDiagram name="E7Hotel">
   <ClassDiagramComponents>
-    <Class name="Hotel" package="" visibility="public" xPosition="389.0" yPosition="556.0">
+    <Class name="Hotel" package="" visibility="public" xPosition="387.0" yPosition="552.0">
       <Fields>
         <Field name="cantHab" type="int" visibility="private"/>
         <Field name="numCamasTotal" type="int" visibility="private"/>

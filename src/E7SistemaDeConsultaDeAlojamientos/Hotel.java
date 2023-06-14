@@ -50,7 +50,8 @@ package E7SistemaDeConsultaDeAlojamientos;
  *
  * @author AlejaDevelops
  */
-public class Hotel extends Alojamientos{
+public class Hotel extends Alojamientos {
+
     protected int cantHab, numCamasTotal, cantPisos;
     protected double precioHab;
 
@@ -96,14 +97,11 @@ public class Hotel extends Alojamientos{
     public void setPrecioHab(double precioHab) {
         this.precioHab = precioHab;
     }
-
-   
+    
 
     @Override
     public String toString() {
-        return  super.toString()+"\n Cantidad de habitaciones: " + cantHab + "\n Numero total de camas: " + numCamasTotal + "\n Cantidad de pisos: " + cantPisos;
+        return super.toString() + "\n Cantidad de habitaciones: " + cantHab + "\n Numero total de camas: " + numCamasTotal + "\n Cantidad de pisos: " + cantPisos;
     }
-    
-    
-    
+
 }
